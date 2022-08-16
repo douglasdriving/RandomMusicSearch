@@ -1,5 +1,5 @@
 const clientId = 'd6ca8adb5dd047ffba15f15ca9995231';
-const redirectURI = (window.location.toString().includes('localhost:3000')) ? 'http://localhost:3000/' : 'http://dogejam.surge.sh/';
+const redirectURI = (window.location.toString().includes('localhost:3000')) ? 'http://localhost:3000/' : 'https://randomplaylist.netlify.app/';
 let accessToken;
 
 let Spotify = {
