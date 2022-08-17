@@ -13,7 +13,7 @@ export class App extends React.Component {
     super(props);
     this.state = {
       searchResults: [],
-      playlistName: 'New Playlist',
+      playlistName: '',
       playlistTracks: []
     };
     this.addTrack = this.addTrack.bind(this);
@@ -87,33 +87,56 @@ export class App extends React.Component {
 
   }
 
-  //FULL APP RENDER
   render() {
     return (
-      <div>
-        <h1>Ja<span className="highlight">mmm</span>ing</h1>
+      <div className='page'>
+        <div className='header'>
+          <h1>Playlist <span className="highlight">Random</span>izer</h1>
+        </div>
         <div className="App">
-          <SearchBar
-            onSearch={this.search}
+          <Playlist
+            playlistName={this.state.playlistName}
+            playlistTracks={this.state.playlistTracks}
+            onRemove={this.removeTrack}
+            onNameChange={this.updatePlaylistName}
+            onSave={this.savePlaylist}
+            onRandomize={this.randomizePlaylist}
           />
-          <div className="App-playlist">
-            <SearchResults
-              searchResults={this.state.searchResults}
-              onAdd={this.addTrack}
-            />
-            <Playlist
-              playlistName={this.state.playlistName}
-              playlistTracks={this.state.playlistTracks}
-              onRemove={this.removeTrack}
-              onNameChange={this.updatePlaylistName}
-              onSave={this.savePlaylist}
-              onRandomize={this.randomizePlaylist}
-            />
-          </div>
         </div>
       </div>
     )
   }
+
+  //RENDER WITH SEARCH BOX ETC
+  // render() {
+  //   return (
+  //     <div>
+  //       <div className='header'>
+  //         <h1>Playlist <span className="highlight">Random</span>izer</h1>
+  //         <h3>Generate spotify playlists based on a random word!</h3>
+  //       </div>
+  //       <div className="App">
+  //         <SearchBar
+  //           onSearch={this.search}
+  //         />
+  //         <div className="App-playlist">
+  //           <SearchResults
+  //             searchResults={this.state.searchResults}
+  //             onAdd={this.addTrack}
+  //           />
+  //           <Playlist
+  //             playlistName={this.state.playlistName}
+  //             playlistTracks={this.state.playlistTracks}
+  //             onRemove={this.removeTrack}
+  //             onNameChange={this.updatePlaylistName}
+  //             onSave={this.savePlaylist}
+  //             onRandomize={this.randomizePlaylist}
+  //           />
+  //         </div>
+  //       </div>
+  //     </div>
+  //   )
+  // }
 
 }
 
